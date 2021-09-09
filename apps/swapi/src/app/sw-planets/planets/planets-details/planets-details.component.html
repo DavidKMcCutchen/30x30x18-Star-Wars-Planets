@@ -1,0 +1,191 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>
+        <span *ngIf="currentPlanet.url; else elseBlock">{{
+          originalTitle
+        }}</span>
+        <ng-template #elseBlock>Create a Planet</ng-template>
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="save(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+      </mat-form-field>
+
+      
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+          <mat-label>Rotational Period</mat-label>
+          <input
+            matInput
+            placeholder="Rotational Period"
+            formControlName="rotation_period"
+            type="text"
+            name="rotation_period"
+          />
+        </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Orbital Period</mat-label>
+        <input
+          matInput
+          placeholder="Orbital Period"
+          formControlName="orbital_period"
+          type="text"
+          name="orbital_period"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Diameter</mat-label>
+        <input
+          matInput
+          placeholder="Diameter"
+          formControlName="diameter"
+          type="text"
+          name="diameter"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Climate</mat-label>
+        <input
+          matInput
+          placeholder="Climate"
+          formControlName="climate"
+          type="text"
+          name="climate"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Gravity</mat-label>
+        <input
+          matInput
+          placeholder="Gravity"
+          formControlName="gravity"
+          type="text"
+          name="gravity"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Terrain</mat-label>
+        <input
+          matInput
+          placeholder="Terrain"
+          formControlName="terrain"
+          type="text"
+          name="terrain"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Surface Water</mat-label>
+        <input
+          matInput
+          placeholder="Surface Water"
+          formControlName="surface_water"
+          type="text"
+          name="surface_water"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Population</mat-label>
+        <input
+          matInput
+          placeholder="Population"
+          formControlName="population"
+          type="text"
+          name="population"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Residents</mat-label>
+        <input
+          matInput
+          placeholder="Residents"
+          formControlName="residents"
+          type="text"
+          name="residents"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Films</mat-label>
+        <input
+          matInput
+          placeholder="Films"
+          formControlName="films"
+          type="text"
+          name="films"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Created</mat-label>
+        <input
+          matInput
+          placeholder="Created"
+          formControlName="created"
+          type="text"
+          name="created"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Edited</mat-label>
+        <input
+          matInput
+          placeholder="Edited"
+          formControlName="edited"
+          type="text"
+          name="edited"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>URL</mat-label>
+        <input
+          matInput
+          placeholder="URL"
+          formControlName="url"
+          type="text"
+          name="url"
+        />
+      </mat-form-field>
+
+
+
+
+      <section class="full-width">
+      </section>
+
+      
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-button color="primary">
+        {{ originalTitle ? 'Save' : 'Create' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="col-50" layout="row" layout-align="center center">
+      <workspace-planets-list
+        [planets]="allPlanets$ | async"
+        (selected)="selectPlanet($event)"
+        (deleted)="deletePlanet($event)"
+        (planetViewed)="viewPlanet($event)"
+      ></workspace-planets-list>
+    </div>
+    <div class="col-50" layout="row" layout-align="center center">
+      <workspace-planets-details
+        [planet]="selectedPlanet$ | async"
+        (saved)="savePlanet($event)"
+        (cancelled)="resetPlanet()"
+        [form]="form"
+      ></workspace-planets-details>
+    </div>
+  </div>

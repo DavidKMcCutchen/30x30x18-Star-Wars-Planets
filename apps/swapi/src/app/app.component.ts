@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'swapi';
+  title= 'Planets';
+  links= [
+    {path: '', icon: 'home', title: 'Home'},
+    {path: 'planets', icon: 'view_list', title: 'Planets'}
+  ]
 }

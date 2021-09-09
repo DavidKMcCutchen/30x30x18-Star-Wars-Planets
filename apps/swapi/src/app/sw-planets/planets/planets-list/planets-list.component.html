@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Star Wars Planets</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let planet of planets" data-test="planet-list-item" (click)="selected.emit(planet)">
+        <h3 matLine>{{planet.name}}</h3>
+        <p matLine> Rotational Period: {{planet.rotation_period}}</p>
+        <p matLine> Climate: {{planet.climate}}</p>
+        <p matLine> Population: {{planet.population}}</p>
+        <p matLine> Residents: {{planet.residents}}</p>
+        
+        <button mat-icon-button (click)="planetViewed.emit(planet.url); $event.stopImmediatePropagation()">
+          <mat-icon *ngIf="!readonly">chevron_left</mat-icon>
+        </button>
+
+
+        <button mat-icon-button (click)="deleted.emit(planet); $event.stopImmediatePropagation()">
+          <mat-icon *ngIf="!readonly">delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
