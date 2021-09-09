@@ -3,8 +3,17 @@ import { createEffect, Actions, ofType } from "@ngrx/effects";
 import { Planet } from "@workspace/api-interfaces";
 import { PlanetsService } from "@workspace/core-data";
 import * as PlanetActions from './planets.actions';
-import { map } from "rxjs/operators";
+import { map, tap } from "rxjs/operators";
 import { fetch, pessimisticUpdate } from "@nrwl/angular";
+import { Observable, pipe, UnaryFunction } from "rxjs";
+
+const streamLogger = (): UnaryFunction<Observable<any>, Observable<any>> => pipe(
+    tap(
+        (res) => console.log(`Next: `, res),
+        (err) => console.log(`Err: `, err),
+        () => console.log('completed')
+    )
+);
 
 @Injectable()
 export class PlanetEffects{
@@ -27,6 +36,7 @@ export class PlanetEffects{
                     this.planetsService
                     .getAll()
                     .pipe(
+                        streamLogger(),
                         map((planets: Planet[]) => PlanetActions.loadPlanetsSuccess({ planets }))
                     ),
                 onError: (action, error) => PlanetActions.loadPlanetsFailed({ error })    

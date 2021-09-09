@@ -13,7 +13,7 @@ import * as fromPlanets from './planets.reducer';
 
 export class PlanetFacade {
     allPlanets$ = this.store.pipe(
-        map((state) => PlanetSelectors.getAllPlanets(state)),
+        select(PlanetSelectors.getAllPlanets),
     )
     selectedPlanets$ = this.store.pipe(select(PlanetSelectors.getSelectedPlanet));
     loaded$ = this.store.pipe(select(PlanetSelectors.getPlanetsLoaded));

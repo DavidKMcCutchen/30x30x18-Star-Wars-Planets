@@ -15,7 +15,7 @@ export interface PlanetPartialState {
     readonly [PLANET_FEATURE_KEY]: PlanetState
 };
 
-export const planetAdapter: EntityAdapter<Planet> = createEntityAdapter<Planet>();
+export const planetAdapter: EntityAdapter<Planet> = createEntityAdapter<Planet>({selectId: (r) => r.url});
 
 export const initialPlanetState: PlanetState = planetAdapter.getInitialState(
     {

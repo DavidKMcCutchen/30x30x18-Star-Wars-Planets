@@ -11,7 +11,6 @@
         <p matLine> Rotational Period: {{planet.rotation_period}}</p>
         <p matLine> Climate: {{planet.climate}}</p>
         <p matLine> Population: {{planet.population}}</p>
-        <p matLine> Residents: {{planet.residents}}</p>
         
         <button mat-icon-button (click)="planetViewed.emit(planet.url); $event.stopImmediatePropagation()">
           <mat-icon *ngIf="!readonly">chevron_left</mat-icon>
